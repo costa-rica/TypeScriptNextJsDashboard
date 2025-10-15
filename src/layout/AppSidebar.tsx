@@ -9,12 +9,9 @@ import {
 	ChevronDownIcon,
 	CloseIcon,
 	DatabaseIcon,
-	FileIcon,
-	GearIcon,
 	HorizontaLDots,
+	HouseIcon,
 	LogoutIcon,
-	NewspaperIcon,
-	PieChartIcon,
 } from "../icons/index";
 import SidebarWidget from "./SidebarWidget";
 import { ThemeToggleButton } from "../components/common/ThemeToggleButton";
@@ -29,33 +26,11 @@ type NavItem = {
 
 const navItems: NavItem[] = [
 	{
-		icon: <NewspaperIcon />,
-		name: "Articles",
+		icon: <HouseIcon />,
+		name: "Home",
 		subItems: [
-			{ name: "Review", path: "/articles/review", pro: false },
-			{ name: "Add / Delete", path: "/articles/add-delete", pro: false },
+			{ name: "Home page", path: "/home", pro: false },
 		],
-	},
-	{
-		icon: <FileIcon />,
-		name: "Reports",
-		subItems: [
-			{ name: "Weekly CPSC Report", path: "/reports/weekly-cpsc", pro: false },
-		],
-	},
-	{
-		name: "Analysis",
-		icon: <PieChartIcon />,
-		subItems: [
-			{ name: "Article Request", path: "/analysis/article-requests", pro: false },
-			{ name: "Count by State", path: "/analysis/count-by-state", pro: false },
-			{ name: "Approved Duplicate Analysis", path: "/analysis/approved-article-duplicate", pro: false },
-		],
-	},
-	{
-		icon: <GearIcon />,
-		name: "Settings",
-		path: "/user-settings",
 	},
 	{
 		icon: <LogoutIcon />,

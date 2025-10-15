@@ -55,6 +55,7 @@ import NewspaperIcon from "./newspaper-solid.svg";
 import DatabaseIcon from "./database-solid.svg";
 import GearIcon from "./gear-solid-full.svg";
 import LogoutIcon from "./logout.svg";
+import HouseIcon from "./house-solid-full.svg";
 
 export {
 	DownloadIcon,
@@ -114,4 +115,5 @@ export {
 	DatabaseIcon,
 	GearIcon,
 	LogoutIcon,
+	HouseIcon,
 };
