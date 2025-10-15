@@ -8,15 +8,13 @@ import Image from "next/image";
 import React, { useState, useEffect, useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { useRouter } from "next/navigation";
-import { loginUser, updateStateArray } from "@/store/features/user/userSlice";
+import { loginUser } from "@/store/features/user/userSlice";
 
 // export default function SignInForm() {
 export default function LoginForm() {
 	const [showPassword, setShowPassword] = useState(false);
 	const [email, emailSetter] = useState(
-		process.env.NEXT_PUBLIC_MODE === "workstation"
-			? "nickrodriguez@kineticmetrics.com"
-			: ""
+		process.env.NEXT_PUBLIC_MODE === "workstation" ? "nrodrig1@gmail.com" : ""
 	);
 	const [password, passwordSetter] = useState(
 		process.env.NEXT_PUBLIC_MODE === "workstation" ? "test" : ""
@@ -26,38 +24,6 @@ export default function LoginForm() {
 	// const userReducer = useSelector((state) => state.user);
 	const userReducer = useAppSelector((s) => s.user);
 
-	const fetchStateArray = useCallback(async () => {
-		try {
-			const response = await fetch(
-				`${process.env.NEXT_PUBLIC_API_BASE_URL}/states`
-			);
-
-			console.log(`Response status: ${response.status}`);
-
-			if (!response.ok) {
-				const errorText = await response.text();
-				throw new Error(`Server Error: ${errorText}`);
-			}
-
-			const result = await response.json();
-			console.log("Fetched Data (states):", result);
-
-			if (result.statesArray && Array.isArray(result.statesArray)) {
-				const tempStatesArray = result.statesArray.map(
-					(stateObj: { id: number; name: string }) => ({
-						...stateObj,
-						selected: false,
-					})
-				);
-				dispatch(updateStateArray(tempStatesArray));
-			} else {
-				dispatch(updateStateArray([]));
-			}
-		} catch (error) {
-			console.error("Error fetching states:", error);
-		}
-	}, [dispatch]);
-
 	useEffect(() => {
 		// Auto-redirect if user is already logged in
 		if (userReducer.token) {
@@ -65,12 +31,8 @@ export default function LoginForm() {
 			return;
 		}
 
-		// Only fetch if stateArray is empty
-		if (userReducer.stateArray.length === 0) {
-			fetchStateArray();
-		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [fetchStateArray, userReducer.token, router]);
+	}, [userReducer.token, router]);
 
 	const handleClickLogin = async () => {
 		console.log(
@@ -209,8 +171,8 @@ export default function LoginForm() {
 						width={1500}
 						height={1500}
 						className="w-full h-full object-contain"
-						src="/images/kmLogo_square1500.png"
-						alt="Km Logo"
+						src="/images/DashDataV3_calibri_teal_iosIcon.png"
+						alt="DashData Logo"
 					/>
 				</div>
 			</div>

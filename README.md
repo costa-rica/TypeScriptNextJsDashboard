@@ -14,3 +14,12 @@ This is a starter project for a dashboard application built with Next.js and Typ
 - Uses TailwindCSS
 - Uses Redux for state management
 - Uses TypeScript
+
+## Imports
+
+### Required for Template
+
+- `npm install @reduxjs/toolkit react-redux redux-persist`
+- `npm install tailwind-merge`
+- `npm i -D @svgr/webpack`
+  - this requires a change to the next.config.ts file -- > see the file for details.
